@@ -4,6 +4,7 @@ import localFont from 'next/font/local'
 import './globals.css'
 import { Container, CssBaseline, ThemeProvider } from '@mui/material'
 import darTheme from './dark.theme'
+import Header from './header/header'
 
 const geistSans = localFont({
 	src: './fonts/GeistVF.woff',
@@ -34,6 +35,7 @@ export default function RootLayout({
 				<AppRouterCacheProvider>
 					<ThemeProvider theme={darTheme}>
 						<CssBaseline />
+						<Header />
 						<Container>{children}</Container>
 					</ThemeProvider>
 				</AppRouterCacheProvider>

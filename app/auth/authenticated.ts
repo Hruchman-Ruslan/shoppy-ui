@@ -1,5 +1,7 @@
 import { cookies } from 'next/headers'
 
-export default function authenticated() {
-	return !!cookies().get('Authentication')
+export default async function authenticated() {
+	const cookiesInstance = await cookies()
+	const authCookie = cookiesInstance.get('Authentication')
+	return !!authCookie
 }

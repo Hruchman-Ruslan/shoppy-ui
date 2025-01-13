@@ -6,6 +6,7 @@ import { API_URL } from '@/app/common/constants/api'
 import { getErrorMessage } from '@/app/common/util/errors'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
+import { AUTHENTICATION_COOKIE } from '../auth-cookie'
 
 export default async function login(_prevState: FormError, formData: FormData) {
 	const res = await fetch(`${API_URL}/auth/login`, {
@@ -31,7 +32,7 @@ const setAuthCookie = async (response: Response) => {
 
 		const cookiesInstance = await cookies()
 		cookiesInstance.set({
-			name: 'Authentication',
+			name: AUTHENTICATION_COOKIE,
 			value: token,
 			secure: true,
 			httpOnly: true,
